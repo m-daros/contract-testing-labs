@@ -1,0 +1,6 @@
+/service-client/service-client.iml
+/service-provider/service-provider.iml
+/mvnw.cmd
+/mvnw
+/.mvn/**
+/contract-testing-labs.iml
