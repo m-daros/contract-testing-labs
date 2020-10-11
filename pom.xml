@@ -39,12 +39,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-<!--			<exclusions>-->
-<!--				<exclusion>-->
-<!--					<groupId>org.junit.vintage</groupId>-->
-<!--					<artifactId>junit-vintage-engine</artifactId>-->
-<!--				</exclusion>-->
-<!--			</exclusions>-->
 		</dependency>
 		<dependency>
 			<groupId>io.projectreactor</groupId>
@@ -70,6 +64,16 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.4.0.905</version>
+			</plugin>
+		</plugins>
+	</build>
 
 	<modules>
 		<module>service-provider</module>
