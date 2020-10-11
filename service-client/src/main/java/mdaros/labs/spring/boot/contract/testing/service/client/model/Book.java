@@ -12,6 +12,5 @@ import java.time.LocalDateTime;
 public class Book {
 
 	private Long          id;
-//	private LocalDateTime releaseDate;
 	private LocalDateTime publishDate;
 }
