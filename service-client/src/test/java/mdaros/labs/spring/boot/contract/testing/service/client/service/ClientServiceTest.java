@@ -10,6 +10,7 @@ import org.springframework.cloud.contract.stubrunner.spring.AutoConfigureStubRun
 import org.springframework.cloud.contract.stubrunner.spring.StubRunnerProperties;
 import org.springframework.test.context.junit4.SpringRunner;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
 @SpringBootTest ( classes = ServiceClientApplication.class )
@@ -30,6 +31,18 @@ public class ClientServiceTest {
 		StepVerifier.create ( books )
 				.expectNextMatches ( book -> book.getId () != null && book.getPublishDate () != null )
 				.expectNextMatches ( book -> book.getId () != null && book.getPublishDate () != null )
+				.verifyComplete ();
+	}
+
+	@Test
+	public void testFindBook () throws Exception {
+
+		// Invoke method to test
+		Mono<Book> book = service.findBook ( 1L );
+
+		// Assertions
+		StepVerifier.create ( book )
+				.expectNextMatches ( b -> b.getId () != null && b.getPublishDate () != null )
 				.verifyComplete ();
 	}
 }
